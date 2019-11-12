@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/pages/chat.dart';
 import 'package:myapp/pages/dashboard.dart';
 import 'package:myapp/pages/profile.dart';
-import 'package:myapp/pages/settings.dart';
+// import 'package:myapp/pages/settings.dart';
+import 'package:myapp/pages/testPage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _HomeState extends State<Home> {
     Dashboard(),
     Chat(),
     Profile(),
-    Settings()
+    TestPage()
   ]; //Все страницы
 
   //Активный таб (страница)
@@ -39,7 +40,11 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Colors.red,
-        onPressed: (){},
+        onPressed: (){
+                setState(() {
+                  currentScreen = TestPage();
+                },);
+              },
       ),
 
       //Fab Button Position
@@ -108,22 +113,22 @@ class _HomeState extends State<Home> {
                       )
                     ],),
                   ),
-                  MaterialButton(
-                    minWidth: 40,
-                    onPressed: (){
-                      setState(() {
-                       currentScreen = Settings();
-                       currentTab = 3; 
-                      },);
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                      Icon(Icons.settings, color: currentTab == 3 ? Colors.blue : Colors.grey,),
-                      Text('Settings', style: TextStyle(color: currentTab == 3 ? Colors.blue : Colors.grey,),
-                      )
-                    ],),
-                  )
+                  // MaterialButton(
+                  //   minWidth: 40,
+                  //   onPressed: (){
+                  //     setState(() {
+                  //      currentScreen = TestPage();
+                  //      currentTab = 3; 
+                  //     },);
+                  //   },
+                  //   child: Column(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: <Widget>[
+                  //     Icon(Icons.settings, color: currentTab == 3 ? Colors.blue : Colors.grey,),
+                  //     Text('TestPage', style: TextStyle(color: currentTab == 3 ? Colors.blue : Colors.grey,),
+                  //     )
+                  //   ],),
+                  // )
                 ],
               )
             ],
